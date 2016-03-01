@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     class TutorialRenderer : GLSurfaceView.Renderer {
         var color = 0f
-        var colorVelocity = 0.05f
+        var colorVelocity = 1f/60f
 
         override fun onDrawFrame(gl: GL10){
             if (color > 1 || color < 0){
