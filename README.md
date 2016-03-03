@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 And this's the result:
+
 <img src="device.gif"/>
 
 Download and try it yourself!
