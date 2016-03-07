@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="How to use GLSurfaceView : How to use GLSurfaceView in your Android project? Example written in Kotlin">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>How to use GLSurfaceView</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/egslava/example-Kotlin-Android-GLSurfaceView">View on GitHub</a>
+
+          <h1 id="project_title">How to use GLSurfaceView</h1>
+          <h2 id="project_tagline">How to use GLSurfaceView in your Android project? Example written in Kotlin</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/egslava/example-Kotlin-Android-GLSurfaceView/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/egslava/example-Kotlin-Android-GLSurfaceView/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="kotlin-android-glsurfaceview-example" class="anchor" href="#kotlin-android-glsurfaceview-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Kotlin Android GLSurfaceView example</h1>
+
+<p>How to use GLSurfaceView in your Android project? Example written in Kotlin! :-)</p>
+
+<p>This minimalistic example requires less than 20 lines of Kotlin code:</p>
+
+<div class="highlight highlight-source-Kotlin"><pre>class <span class="pl-en">MainActivity</span> <span class="pl-k">:</span> <span class="pl-e">AppCompatActivity</span>() {
+
+    <span class="pl-k">override</span> <span class="pl-k">fun</span> <span class="pl-en">onCreate</span>(<span class="pl-smi">savedInstanceState</span><span class="pl-k">:</span> Bundle?) {
+        <span class="pl-c1">super</span><span class="pl-k">.</span>onCreate(savedInstanceState)
+        setContentView(R<span class="pl-k">.</span>layout<span class="pl-k">.</span>activity_main)
+
+        glSurface<span class="pl-k">.</span>setRenderer(TutorialRenderer())
+    }
+
+    class <span class="pl-en">TutorialRenderer</span> <span class="pl-k">:</span> <span class="pl-e">GLSurfaceView</span>.<span class="pl-e">Renderer</span> {
+        <span class="pl-k">var</span> <span class="pl-en">color</span> <span class="pl-k">=</span> <span class="pl-c1">0f</span>
+        <span class="pl-k">var</span> <span class="pl-en">colorVelocity</span> <span class="pl-k">=</span> <span class="pl-c1">1f</span><span class="pl-k">/</span><span class="pl-c1">60f</span>
+
+        <span class="pl-k">override</span> <span class="pl-k">fun</span> <span class="pl-en">onDrawFrame</span>(<span class="pl-smi">gl</span><span class="pl-k">:</span> GL10){
+            <span class="pl-k">if</span> (color <span class="pl-k">&gt;</span> <span class="pl-c1">1</span> <span class="pl-k">||</span> color <span class="pl-k">&lt;</span> <span class="pl-c1">0</span>){
+                colorVelocity <span class="pl-k">=</span> <span class="pl-k">-</span>colorVelocity
+            }
+            color <span class="pl-k">+</span><span class="pl-k">=</span> colorVelocity
+
+            gl<span class="pl-k">.</span>glClearColor(color <span class="pl-k">*</span> <span class="pl-c1">0.5f</span>, color, color, <span class="pl-c1">1f</span>)
+            gl<span class="pl-k">.</span>glClear(<span class="pl-c1">GL_COLOR_BUFFER_BIT</span>)
+        }
+
+        <span class="pl-k">override</span> <span class="pl-k">fun</span> <span class="pl-en">onSurfaceCreated</span>(<span class="pl-smi">gl</span><span class="pl-k">:</span> GL10, <span class="pl-smi">config</span><span class="pl-k">:</span> EGLConfig){}
+        <span class="pl-k">override</span> <span class="pl-k">fun</span> <span class="pl-en">onSurfaceChanged</span>(<span class="pl-smi">gl</span><span class="pl-k">:</span> GL10, <span class="pl-smi">width</span><span class="pl-k">:</span> <span class="pl-k">Int</span>, <span class="pl-smi">height</span><span class="pl-k">:</span> <span class="pl-k">Int</span>){}
+    }
+}</pre></div>
+
+<p>And this's the result:</p>
+
+<p><img src="device.gif"></p>
+
+<p>Download and try it yourself!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">How to use GLSurfaceView maintained by <a href="https://github.com/egslava">egslava</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-74818818-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
